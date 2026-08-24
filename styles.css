@@ -5914,8 +5914,8 @@ body {
 
 .hero-section.glass-card > .hero-text-stack > .hero-names {
   order: 2;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  display: flex;
+  justify-content: center;
   align-items: center;
   column-gap: clamp(0.04em, 0.6vw, 0.12em);
   width: min(100%, calc(100vw - 48px));
@@ -5931,19 +5931,6 @@ body {
 .hero-section.glass-card > .hero-text-stack > .hero-names > span {
   display: block;
   min-width: 0;
-}
-
-.hero-section.glass-card > .hero-text-stack .hero-name-left {
-  justify-self: end;
-}
-
-.hero-section.glass-card > .hero-text-stack .hero-name-center {
-  justify-self: center;
-  text-align: center;
-}
-
-.hero-section.glass-card > .hero-text-stack .hero-name-right {
-  justify-self: start;
 }
 
 .hero-section.glass-card > .hero-text-stack > .hero-quote {
@@ -6077,6 +6064,8 @@ body {
 
 @media (min-width: 761px) {
   .hero-section.glass-card > .hero-text-stack > .hero-names {
+    position: relative;
+    left: calc(-1 * clamp(20px, 2.4vw, 48px));
     width: min(100%, 920px);
     margin-inline: auto;
     min-height: 1.48em;
