@@ -78,7 +78,7 @@ const bgOverlayEl = document.getElementById("bg-overlay");
 // Configuracion global editable.
 const PLAYER_STATE_KEY = "wedding_music_state_v1";
 const DEFAULT_VOLUME = 0.5;
-const RSVP_API_URL = "https://script.google.com/macros/s/AKfycbzemF74qu_QD0OPHsfeVT4lD6GCxiwSecDuBuCByJ2J4OROtTTVkhAvFlbZ0I4KIV5A/exec";
+const RSVP_API_URL = "https://script.google.com/macros/s/AKfycbzinhCqKdUm2W0bxCkIcaDm7Jf73_vSG7EHmuRYVgQC3-IePXSbo2yDcCs-KWow9o5lTQ/exec";
 const EVENT_DATE = new Date("2026-10-10T15:00:00");
 const RSVP_CLOSE_DATE = new Date("2026-09-14T00:00:00");
 const RSVP_LOCAL_KEY_PREFIX = "wedding_rsvp_state_v1_";
