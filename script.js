@@ -79,8 +79,8 @@ const bgOverlayEl = document.getElementById("bg-overlay");
 const PLAYER_STATE_KEY = "wedding_music_state_v1";
 const DEFAULT_VOLUME = 0.5;
 const RSVP_API_URL = "https://script.google.com/macros/s/AKfycbzemF74qu_QD0OPHsfeVT4lD6GCxiwSecDuBuCByJ2J4OROtTTVkhAvFlbZ0I4KIV5A/exec";
-const EVENT_DATE = new Date("2026-06-27T17:00:00");
-const RSVP_CLOSE_DATE = new Date("2026-06-13T00:00:00");
+const EVENT_DATE = new Date("2026-10-10T15:00:00");
+const RSVP_CLOSE_DATE = new Date("2026-09-14T00:00:00");
 const RSVP_LOCAL_KEY_PREFIX = "wedding_rsvp_state_v1_";
 const FINAL_RSVP_STATES = new Set(["CONFIRMADO", "NO_ASISTE"]);
 const GUEST_SEARCH_MIN_LENGTH = 2;
@@ -111,7 +111,7 @@ const DURACION_ANIMACION = 1.8;
 // Ajustar aqui la velocidad de animacion de la nota principal (segundos por giro).
 const VELOCIDAD_ANIMACION_NOTA = 7.5;
 // Ajustar aqui iniciales del sello.
-const ENVELOPE_INITIALS = "J&S";
+const ENVELOPE_INITIALS = "J&F";
 // Editar aqui textos de agradecimiento y cierre "Nos vemos pronto".
 const RSVP_POST_CONFIG = {
   closingText: "Nos vemos pronto",
@@ -158,44 +158,54 @@ const INVITATION_INFO_CONFIG = {
     // Editar aqui las imagenes y frases del carrusel.
     slides: [
       {
-        src: "assets/icons_carrusel/carrusel1.png",
-        alt: "Julio y Sara compartiendo un momento especial",
+        src: "assets/icons_carrusel/carrusel1.jpg",
+        alt: "Juan y Fabiola compartiendo un momento especial",
         caption: "Tu sonrisa siempre sera mi lugar favorito."
       },
       {
-        src: "assets/icons_carrusel/carrusel2.png",
-        alt: "Julio y Sara celebrando su historia",
+        src: "assets/icons_carrusel/carrusel2.jpg",
+        alt: "Juan y Fabiola celebrando su historia",
         caption: "Dos vidas, una promesa para toda la vida."
       },
       {
-        src: "assets/icons_carrusel/carrusel3.png",
-        alt: "Julio y Sara en un recuerdo romantico",
+        src: "assets/icons_carrusel/carrusel3.jpg",
+        alt: "Juan y Fabiola en un recuerdo romantico",
         caption: "Contigo, cada atardecer sabe a eternidad."
       },
       {
-        src: "assets/icons_carrusel/carrusel4.png",
-        alt: "Julio y Sara sonriendo juntos",
+        src: "assets/icons_carrusel/carrusel4.jpg",
+        alt: "Juan y Fabiola sonriendo juntos",
         caption: "Lo mas bonito de la vida es caminarla contigo."
       },
       {
-        src: "assets/icons_carrusel/carrusel5.png",
-        alt: "Julio y Sara compartiendo una mirada",
+        src: "assets/icons_carrusel/carrusel5.jpg",
+        alt: "Juan y Fabiola compartiendo una mirada",
         caption: "En tus ojos encontre mi hogar."
       },
       {
-        src: "assets/icons_carrusel/carrusel6.png",
-        alt: "Julio y Sara viviendo un momento feliz",
+        src: "assets/icons_carrusel/carrusel6.jpg",
+        alt: "Juan y Fabiola viviendo un momento feliz",
         caption: "Cada instante contigo se vuelve recuerdo favorito."
       },
       {
-        src: "assets/icons_carrusel/carrusel7.jpeg",
-        alt: "Julio y Sara abrazados",
+        src: "assets/icons_carrusel/carrusel7.jpg",
+        alt: "Juan y Fabiola abrazados",
         caption: "Nuestro amor es la historia que mas nos gusta contar."
       },
       {
-        src: "assets/icons_carrusel/carrusel8.jpeg",
-        alt: "Julio y Sara juntos",
+        src: "assets/icons_carrusel/carrusel9.jpg",
+        alt: "Juan y Fabiola juntos",
         caption: "Y asi, de la mano, elegimos para siempre."
+      },
+      {
+        src: "assets/icons_carrusel/carrusel10.jpg",
+        alt: "Juan y Fabiola en una foto de su historia",
+        caption: "Cada paso nos acerco a este dia."
+      },
+      {
+        src: "assets/icons_carrusel/carrusel11.jpg",
+        alt: "Juan y Fabiola compartiendo su amor",
+        caption: "Nuestro para siempre empieza aqui."
       }
     ]
   },
@@ -204,12 +214,9 @@ const INVITATION_INFO_CONFIG = {
     // Editar aqui la lista de eventos del itinerario (agregar, eliminar o reordenar).
     // Cada evento usa una tarjeta principal y una ilustracion decorativa alineada.
     events: [
-      { time: "16:30 PM", title: "Llegada de invitados", location: "Deck Caelo", artSrc: "assets/icons/llegada.svg", artAlt: "Ilustracion fotografica" },
-      { time: "17:00 PM", title: "Ceremonia", location: "Deck Caelo", artSrc: "assets/icons/ceremonia2.svg", artAlt: "Ilustracion de ceremonia" },
-      { time: "18:00 PM", title: "Sesion de Recuerdos", location: "Corredor de Jardin", artSrc: "assets/icons/sesion.svg", artAlt: "Ilustracion de sesion de recuerdos" },
-      { time: "19:00 PM", title: "Recepción", location: "Salon Colonial", artSrc: "assets/icons/recepcion.svg", artAlt: "Ilustracion fotografica" },
-      { time: "19:30 PM", title: "Cena", location: "Salon Colonial", artSrc: "assets/icons/cena.svg", artAlt: "Ilustracion de cena" },
-      { time: "20:30 PM", title: "Primer Baile", location: "Salon Colonial", artSrc: "assets/icons/baile.svg", artAlt: "Ilustracion de baile" }
+      { time: "3:00 PM", title: "Ceremonia", location: "Iglesia Verbo zona 16", artSrc: "assets/icons/ceremonia2.svg", artAlt: "Ilustracion de ceremonia" },
+      { time: "4:30 PM", title: "Recepción", location: "Iglesia Verbo zona 16", artSrc: "assets/icons/recepcion.svg", artAlt: "Ilustracion de recepcion" },
+      { time: "6:30 PM", title: "Cena", location: "Iglesia Verbo zona 16", artSrc: "assets/icons/cena.svg", artAlt: "Ilustracion de cena" }
     ]
   },
   dresscode: {
@@ -228,7 +235,7 @@ const INVITATION_INFO_CONFIG = {
     // Cambiar aqui el texto del boton.
     cashGiftCta: "CUENTA BANCARIA",
     // Cambiar aqui el nombre del titular de la cuenta.
-    bankAccountName: "Julio Josue Valladares Cardona",
+    bankAccountName: "Grecia Fabiola / Juan Valladares",
     // Cambiar aqui el numero de cuenta bancaria.
     bankAccountNumber: "0800062317",
     // Cambiar aqui la nota de mesa fisica en el evento.

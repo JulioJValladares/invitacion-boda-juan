@@ -10,7 +10,7 @@
   --color-text-secondary: #7a7168;
   --color-button: #a48d72;
   --color-button-hover: #927b62;
-  --bg-photo-url: url("assets/icons/fondo.png");
+  --bg-photo-url: url("assets/icons/fondo.jpg");
 
   --envelope-front: #e9dfcf;
   --envelope-flap: #ded2bf;
@@ -25,7 +25,7 @@
   --title-color: #b49a72;
   --title-size: clamp(2.2rem, 4.6vw, 3.1rem);
 
-  /* Portada (Julio & Susan) */
+  /* Portada (Juan & Fabiola) */
   --hero-names-color: #4a3b2c;
   --hero-names-size: clamp(3.65rem, 10.3vw, 6.86rem);
   --hero-kicker-color: #5f5142;
@@ -2006,11 +2006,6 @@ body {
   background:
     linear-gradient(135deg, #ffffff, #f1ece3);
   border: 1px solid rgba(145, 129, 108, 0.26);
-}
-
-.dresscode-color-chip--red .dresscode-color-swatch {
-  background:
-    linear-gradient(135deg, #b11f2e, #8f1420);
 }
 
 .dresscode-color-name,
@@ -5959,6 +5954,36 @@ body {
   line-height: 1.55;
 }
 
+.hero-section.glass-card > .hero-text-stack > .parents-grid {
+  order: 4;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(4px, 0.8vw, 10px) clamp(18px, 4vw, 56px);
+  width: min(100%, 760px);
+  color: inherit;
+  text-shadow: inherit;
+}
+
+.hero-section.glass-card > .hero-text-stack > .parents-grid > .parent-name {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  text-shadow: inherit;
+  font-style: italic;
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  line-height: 1.3;
+}
+
+.hero-section.glass-card > .hero-text-stack > .parents-grid > .parent-name:nth-child(odd) {
+  text-align: right;
+}
+
+.hero-section.glass-card > .hero-text-stack > .parents-grid > .parent-name:nth-child(even) {
+  text-align: left;
+}
+
 /* Ajuste puntual de textos en Ceremonia */
 .hero-date-section .ceremony-title {
   font-size: clamp(2.55rem, 4.8vw, 3.45rem);
@@ -6013,6 +6038,16 @@ body {
   .hero-section.glass-card > .hero-text-stack > .hero-quote {
     font-size: clamp(1.52rem, 6.1vw, 1.84rem);
     line-height: 1.55;
+  }
+
+  .hero-section.glass-card > .hero-text-stack > .parents-grid {
+    width: 100%;
+    gap: 4px 12px;
+  }
+
+  .hero-section.glass-card > .hero-text-stack > .parents-grid > .parent-name {
+    font-size: clamp(0.92rem, 4.1vw, 1.2rem);
+    line-height: 1.35;
   }
 
   .hero-date-section .ceremony-title {

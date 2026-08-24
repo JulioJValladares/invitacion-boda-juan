@@ -15,7 +15,19 @@ var COL = {
 var ESTADO_PENDIENTE = "PENDIENTE";
 var ESTADO_CONFIRMADO = "CONFIRMADO";
 var ESTADO_NO_ASISTE = "NO_ASISTE";
-var RSVP_CLOSE_DATE = new Date(2026, 5, 12, 0, 0, 0);
+var EVENT_TITLE = "Boda Juan & Fabiola";
+var EVENT_LOCATION = "Iglesia Verbo zona 16";
+var EVENT_DETAILS = "Te esperamos para celebrar nuestra boda.";
+var EVENT_DATE_TEXT = "10 de octubre de 2026";
+var EVENT_TIME_TEXT = "3:00 PM a 9:00 PM";
+var EVENT_CALENDAR_START = "20261010T150000";
+var EVENT_CALENDAR_END = "20261010T210000";
+var EVENT_ICS_DOMAIN = "boda-juan-fabiola";
+var EVENT_ICS_FILENAME = "boda-juan-fabiola.ics";
+
+// Se permiten confirmaciones durante todo el 13 de septiembre.
+// Se cierra el 14 de septiembre a las 00:00.
+var RSVP_CLOSE_DATE = new Date(2026, 8, 14, 0, 0, 0);
 
 function doGet(e) {
   try {
@@ -352,10 +364,10 @@ function buildGoogleCalendarLink_() {
   var baseUrl = "https://calendar.google.com/calendar/render";
   var params = [
     "action=TEMPLATE",
-    "text=" + encodeURIComponent("Boda Julio & Susan"),
-    "dates=20260627T163000/20260627T220000",
-    "location=" + encodeURIComponent("Jardin el cerro"),
-    "details=" + encodeURIComponent("Te esperamos para celebrar nuestra boda"),
+    "text=" + encodeURIComponent(EVENT_TITLE),
+    "dates=" + EVENT_CALENDAR_START + "/" + EVENT_CALENDAR_END,
+    "location=" + encodeURIComponent(EVENT_LOCATION),
+    "details=" + encodeURIComponent(EVENT_DETAILS),
     "ctz=" + encodeURIComponent("America/Guatemala")
   ];
   return baseUrl + "?" + params.join("&");
@@ -365,22 +377,22 @@ function buildIcsFile_() {
   var ics = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Boda Julio y Susan//RSVP//ES",
+    "PRODID:-//Boda Juan y Fabiola//RSVP//ES",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
     "BEGIN:VEVENT",
-    "UID:" + new Date().getTime() + "@boda-julio-susan",
+    "UID:" + new Date().getTime() + "@" + EVENT_ICS_DOMAIN,
     "DTSTAMP:20260424T000000Z",
-    "DTSTART;TZID=America/Guatemala:20260627T163000",
-    "DTEND;TZID=America/Guatemala:20260627T220000",
-    "SUMMARY:Boda Julio & Susan",
-    "LOCATION:Jardin el cerro",
-    "DESCRIPTION:Te esperamos para celebrar nuestra boda",
+    "DTSTART;TZID=America/Guatemala:" + EVENT_CALENDAR_START,
+    "DTEND;TZID=America/Guatemala:" + EVENT_CALENDAR_END,
+    "SUMMARY:" + EVENT_TITLE,
+    "LOCATION:" + EVENT_LOCATION,
+    "DESCRIPTION:" + EVENT_DETAILS,
     "END:VEVENT",
     "END:VCALENDAR"
   ].join("\r\n");
 
-  return Utilities.newBlob(ics, "text/calendar", "boda-julio-susan.ics");
+  return Utilities.newBlob(ics, "text/calendar", EVENT_ICS_FILENAME);
 }
 
 function sendConfirmationEmail_(nombre, correo) {
@@ -391,10 +403,10 @@ function sendConfirmationEmail_(nombre, correo) {
     "",
     "Tu asistencia ha sido confirmada para nuestra boda.",
     "",
-    "Evento: Boda Julio & Susan",
-    "Fecha: 27 de junio de 2026",
-    "Hora: 4:30 PM a 10:00 PM",
-    "Lugar: Jardin el cerro",
+    "Evento: " + EVENT_TITLE,
+    "Fecha: " + EVENT_DATE_TEXT,
+    "Hora: " + EVENT_TIME_TEXT,
+    "Lugar: " + EVENT_LOCATION,
     "",
     "Gracias por confirmar tu asistencia. Será muy especial compartir este día contigo.",
     "",
@@ -404,7 +416,7 @@ function sendConfirmationEmail_(nombre, correo) {
 
   MailApp.sendEmail({
     to: correo,
-    subject: "Confirmacion de asistencia - Boda Julio & Susan",
+    subject: "Confirmacion de asistencia - " + EVENT_TITLE,
     body: body,
     attachments: [buildIcsFile_()]
   });
