@@ -149,7 +149,7 @@ const RSVP_POST_ANIMATION_TIMINGS = {
 };
 const INVITATION_INFO_CONFIG = {
   moments: {
-    title: "Nuestros Momentos",
+    title: "Una mirada a nuestro amor",
     subtitle: "Cada recuerdo nos trajo hasta este para siempre.",
     // Editar aqui el intervalo de auto-rotacion del carrusel (en milisegundos).
     autoRotateIntervalMs: 5000,
