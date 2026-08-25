@@ -5941,6 +5941,16 @@ body {
   line-height: 1.55;
 }
 
+.hero-section.glass-card > .hero-text-stack > .hero-quote--scripture {
+  display: flex;
+  flex-direction: column;
+  gap: 0.04em;
+}
+
+.hero-section.glass-card > .hero-text-stack > .hero-quote--scripture > span {
+  display: block;
+}
+
 .hero-section.glass-card > .hero-text-stack > .parents-grid {
   order: 4;
   display: grid;
