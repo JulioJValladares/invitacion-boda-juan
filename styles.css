@@ -6081,11 +6081,24 @@ body {
     }
 
     .hero-section.glass-card > .hero-text-stack > .hero-names {
+      box-sizing: border-box;
       height: auto;
       max-height: none;
-      padding-block: 0.14em 0.08em;
+      min-height: 1.7em;
+      padding-block: 0.28em 0.14em;
+      margin-block: -0.14em -0.08em;
       overflow: visible;
-      line-height: 1.5;
+      line-height: 1.36;
+    }
+
+    .hero-section.glass-card > .hero-text-stack > .hero-names > span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 1.34em;
+      padding-block: 0.22em 0.1em;
+      overflow: visible;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
     }
   }
 }
