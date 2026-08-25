@@ -206,6 +206,11 @@ const INVITATION_INFO_CONFIG = {
         src: "assets/icons_carrusel/carrusel11.jpg",
         alt: "Juan y Fabiola compartiendo su amor",
         caption: "Nuestro para siempre empieza aqui."
+      },
+      {
+        src: "assets/icons/fondo.jpg",
+        alt: "Juan y Fabiola en la foto principal de la invitacion",
+        caption: "La imagen que guarda el inicio de este gran dia."
       }
     ]
   },
