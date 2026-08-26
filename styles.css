@@ -6028,7 +6028,7 @@ body {
 
   .hero-section.glass-card > .hero-text-stack > .hero-names {
     max-width: min(100%, calc(100vw - 48px));
-    font-size: clamp(2.9rem, 13vw, 4.28rem);
+    font-size: clamp(2.72rem, 12.2vw, 4.02rem);
     line-height: 1.42;
   }
 
