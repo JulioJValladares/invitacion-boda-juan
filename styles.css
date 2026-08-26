@@ -6117,21 +6117,3 @@ body {
     margin-top: 0;
   }
 }
-
-/* DEBUG TEMPORAL: guias visuales del contenedor de nombres */
-.hero-section.glass-card > .hero-text-stack {
-  outline: 2px solid rgba(46, 204, 113, 0.9);
-  outline-offset: 2px;
-}
-
-.hero-section.glass-card > .hero-text-stack > .hero-names {
-  background: rgba(255, 77, 77, 0.14);
-  outline: 2px solid rgba(255, 77, 77, 0.95);
-  outline-offset: 0;
-}
-
-.hero-section.glass-card > .hero-text-stack > .hero-names > span {
-  background: rgba(75, 156, 255, 0.16);
-  outline: 1px dashed rgba(75, 156, 255, 0.95);
-  outline-offset: -1px;
-}
