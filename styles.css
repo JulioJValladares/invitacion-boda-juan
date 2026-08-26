@@ -5917,13 +5917,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: clamp(0.04em, 0.6vw, 0.12em);
+  column-gap: clamp(0.12em, 1.1vw, 0.26em);
   width: min(100%, calc(100vw - 48px));
   max-width: min(100%, calc(100vw - 48px));
   font-family: "Brittany Signature", "Brittany", cursive;
   font-weight: 400;
-  font-size: clamp(6rem, 13.1vw, 10.6rem);
-  line-height: 1.22;
+  font-size: clamp(5.2rem, 10.4vw, 8.8rem);
+  line-height: 1.28;
   letter-spacing: 0;
   white-space: nowrap;
 }
@@ -6028,7 +6028,7 @@ body {
 
   .hero-section.glass-card > .hero-text-stack > .hero-names {
     max-width: min(100%, calc(100vw - 48px));
-    font-size: clamp(2.72rem, 12.2vw, 4.02rem);
+    font-size: clamp(2.9rem, 13vw, 4.28rem);
     line-height: 1.42;
   }
 
@@ -6075,10 +6075,11 @@ body {
 @media (min-width: 761px) {
   .hero-section.glass-card > .hero-text-stack > .hero-names {
     position: relative;
-    left: calc(-1 * clamp(20px, 2.4vw, 48px));
-    width: min(100%, 920px);
+    left: auto;
+    width: min(100%, 1080px);
+    max-width: calc(100vw - 96px);
     margin-inline: auto;
-    min-height: 1.48em;
+    min-height: 1.36em;
     text-align: center;
   }
 }
