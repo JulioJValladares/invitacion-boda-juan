@@ -244,7 +244,7 @@ const INVITATION_INFO_CONFIG = {
     // Cambiar aqui el numero de cuenta bancaria.
     bankAccountNumber: "06280175512",
     // Cambiar aqui la nota de mesa fisica en el evento.
-    note: "Habran sobres disponibles el día del evento para quienes prefieran entregar su regalo en efectivo."
+    note: "Habran sobres disponibles el día del evento para quienes prefieran entregar su regalo en efectivo y puedas bendecirnos."
   }
 };
 
