@@ -6094,19 +6094,19 @@ body {
       box-sizing: border-box;
       height: auto;
       max-height: none;
-      min-height: 1.95em;
-      padding-block: 0.4em 0.18em;
-      margin-block: -0.22em -0.12em;
+      min-height: 2.28em;
+      padding-block: 0.62em 0.24em;
+      margin-block: -0.12em -0.08em;
       overflow: visible;
-      line-height: 1.5;
+      line-height: 1.68;
     }
 
     .hero-section.glass-card > .hero-text-stack > .hero-names > span {
       display: block;
-      min-height: 1.58em;
-      padding-block: 0.32em 0.14em;
+      min-height: 1.86em;
+      padding-block: 0.48em 0.18em;
       overflow: visible;
-      line-height: 1.42;
+      line-height: 1.58;
       -webkit-font-smoothing: antialiased;
     }
   }
