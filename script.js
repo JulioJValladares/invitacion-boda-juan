@@ -148,7 +148,7 @@ const RSVP_POST_ANIMATION_TIMINGS = {
 const INVITATION_INFO_CONFIG = {
   moments: {
     title: "Una mirada a nuestro amor",
-    subtitle: "Cada recuerdo nos trajo hasta este para siempre.",
+    subtitle: "Cada recuerdo es para siempre.",
     // Editar aqui el intervalo de auto-rotacion del carrusel (en milisegundos).
     autoRotateIntervalMs: 5000,
     // Editar aqui la duracion de la transicion crossfade (en milisegundos).
