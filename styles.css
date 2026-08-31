@@ -769,11 +769,7 @@ h1 {
 }
 
 .moment-slide::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(56, 43, 26, 0.02) 46%, rgba(56, 43, 26, 0.28) 100%);
-  pointer-events: none;
+  content: none;
 }
 
 .moment-zoom-badge {

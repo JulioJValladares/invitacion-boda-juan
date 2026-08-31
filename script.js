@@ -41,8 +41,6 @@ const momentsPrevBtn = document.getElementById("momentsPrev");
 const momentsNextBtn = document.getElementById("momentsNext");
 const momentsLightboxEl = document.getElementById("momentsLightbox");
 const momentsLightboxImageEl = document.getElementById("momentsLightboxImage");
-const momentsLightboxCaptionEl = document.getElementById("momentsLightboxCaption");
-const momentsLightboxCounterEl = document.getElementById("momentsLightboxCounter");
 const momentsLightboxCloseBtn = document.getElementById("momentsLightboxClose");
 const momentsLightboxPrevBtn = document.getElementById("momentsLightboxPrev");
 const momentsLightboxNextBtn = document.getElementById("momentsLightboxNext");
@@ -155,62 +153,51 @@ const INVITATION_INFO_CONFIG = {
     autoRotateIntervalMs: 5000,
     // Editar aqui la duracion de la transicion crossfade (en milisegundos).
     transitionDurationMs: 1300,
-    // Editar aqui las imagenes y frases del carrusel.
+    // Editar aqui las imagenes del carrusel.
     slides: [
       {
         src: "assets/icons_carrusel/carrusel1.jpg",
-        alt: "Juan y Fabiola compartiendo un momento especial",
-        caption: "Tu sonrisa siempre sera mi lugar favorito."
+        alt: "Juan y Fabiola compartiendo un momento especial"
       },
       {
         src: "assets/icons_carrusel/carrusel2.jpg",
-        alt: "Juan y Fabiola celebrando su historia",
-        caption: "Dos vidas, una promesa para toda la vida."
+        alt: "Juan y Fabiola celebrando su historia"
       },
       {
         src: "assets/icons_carrusel/carrusel3.jpg",
-        alt: "Juan y Fabiola en un recuerdo romantico",
-        caption: "Contigo, cada atardecer sabe a eternidad."
+        alt: "Juan y Fabiola en un recuerdo romantico"
       },
       {
         src: "assets/icons_carrusel/carrusel4.jpg",
-        alt: "Juan y Fabiola sonriendo juntos",
-        caption: "Lo mas bonito de la vida es caminarla contigo."
+        alt: "Juan y Fabiola sonriendo juntos"
       },
       {
         src: "assets/icons_carrusel/carrusel5.jpg",
-        alt: "Juan y Fabiola compartiendo una mirada",
-        caption: "En tus ojos encontre mi hogar."
+        alt: "Juan y Fabiola compartiendo una mirada"
       },
       {
         src: "assets/icons_carrusel/carrusel6.jpg",
-        alt: "Juan y Fabiola viviendo un momento feliz",
-        caption: "Cada instante contigo se vuelve recuerdo favorito."
+        alt: "Juan y Fabiola viviendo un momento feliz"
       },
       {
         src: "assets/icons_carrusel/carrusel7.jpg",
-        alt: "Juan y Fabiola abrazados",
-        caption: "Nuestro amor es la historia que mas nos gusta contar."
+        alt: "Juan y Fabiola abrazados"
       },
       {
         src: "assets/icons_carrusel/carrusel9.jpg",
-        alt: "Juan y Fabiola juntos",
-        caption: "Y asi, de la mano, elegimos para siempre."
+        alt: "Juan y Fabiola juntos"
       },
       {
         src: "assets/icons_carrusel/carrusel10.jpg",
-        alt: "Juan y Fabiola en una foto de su historia",
-        caption: "Cada paso nos acerco a este dia."
+        alt: "Juan y Fabiola en una foto de su historia"
       },
       {
         src: "assets/icons_carrusel/carrusel11.jpg",
-        alt: "Juan y Fabiola compartiendo su amor",
-        caption: "Nuestro para siempre empieza aqui."
+        alt: "Juan y Fabiola compartiendo su amor"
       },
       {
         src: "assets/icons/fondo.jpg",
-        alt: "Juan y Fabiola en la foto principal de la invitacion",
-        caption: "La imagen que guarda el inicio de este gran dia."
+        alt: "Juan y Fabiola en la foto principal de la invitacion"
       }
     ]
   },
@@ -716,16 +703,7 @@ function initializeMomentsCarousel(momentsConfig) {
     zoomTriggerText.textContent = `Ver en grande: ${slide.alt || "Momento romantico"}`;
     zoomTrigger.appendChild(zoomTriggerText);
 
-    const zoomBadge = document.createElement("span");
-    zoomBadge.className = "moment-zoom-badge";
-    zoomBadge.setAttribute("aria-hidden", "true");
-    zoomBadge.textContent = "Ampliar";
-
-    const caption = document.createElement("p");
-    caption.className = "moment-caption";
-    caption.textContent = slide.caption || "";
-
-    article.append(image, zoomTrigger, zoomBadge, caption);
+    article.append(image, zoomTrigger);
     momentsTrackEl.appendChild(article);
 
     const dot = document.createElement("button");
@@ -825,7 +803,7 @@ function initializeMomentsCarousel(momentsConfig) {
   }
 
   function applyLightboxSlide(index) {
-    if (!momentsLightboxImageEl || !momentsLightboxCaptionEl || !momentsLightboxCounterEl) return;
+    if (!momentsLightboxImageEl) return;
 
     const normalizedIndex = (index + slides.length) % slides.length;
     const slide = slides[normalizedIndex];
@@ -833,8 +811,6 @@ function initializeMomentsCarousel(momentsConfig) {
     setActiveSlide(normalizedIndex);
     momentsLightboxImageEl.src = slide.src;
     momentsLightboxImageEl.alt = slide.alt || "Momento romantico";
-    momentsLightboxCaptionEl.textContent = slide.caption || "";
-    momentsLightboxCounterEl.textContent = `Imagen ${normalizedIndex + 1} de ${slides.length}`;
 
     if (momentsLightboxPrevBtn) {
       momentsLightboxPrevBtn.hidden = slides.length < 2;
@@ -850,14 +826,14 @@ function initializeMomentsCarousel(momentsConfig) {
   function updateLightboxSlide(index, options = {}) {
     const { animate = false, direction = 1 } = options;
 
-    if (!animate || !GSAP_INSTANCE || isReducedMotion || !momentsLightboxImageEl || !momentsLightboxCaptionEl || !momentsLightboxCounterEl) {
+    if (!animate || !GSAP_INSTANCE || isReducedMotion || !momentsLightboxImageEl) {
       applyLightboxSlide(index);
       return;
     }
 
     activeLightboxSwapTween?.kill();
 
-    const targets = [momentsLightboxImageEl, momentsLightboxCaptionEl, momentsLightboxCounterEl];
+    const targets = [momentsLightboxImageEl];
     const offset = direction >= 0 ? 18 : -18;
 
     activeLightboxSwapTween = GSAP_INSTANCE.timeline({
